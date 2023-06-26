@@ -18,7 +18,7 @@ public class AppConfig {
 
         http.sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and().csrf().disable().cors().disable().authorizeHttpRequests().requestMatchers("/employee").permitAll().anyRequest().authenticated().and()
+                .and().csrf().disable().cors().disable().authorizeHttpRequests().requestMatchers("/employee/*").permitAll().anyRequest().authenticated().and()
                 .addFilterBefore(new Corsfilter(), ChannelProcessingFilter.class)
                 .addFilterAfter(new JwtTokenGeneratorFilter(), BasicAuthenticationFilter.class)
                 .addFilterBefore(new JwtTokenValidatorFilter(), BasicAuthenticationFilter.class)
