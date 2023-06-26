@@ -1,7 +1,5 @@
 package com.kinben.Models;
 
-import com.kinben.Enums.Education;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,7 +30,7 @@ public class Employee {
 
     private String address;
 
-    private Education education;
+    private String education;
 
     private Integer experience;
 

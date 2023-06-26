@@ -1,6 +1,6 @@
 package com.kinben.Dto;
 
-import com.kinben.Enums.Education;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,7 +21,7 @@ public class EmployeeDto {
 
     private String address;
 
-    private Education education;
+    private String education;
 
     private Integer experience;
     
