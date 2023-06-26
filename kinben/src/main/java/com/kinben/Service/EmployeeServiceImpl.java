@@ -1,5 +1,9 @@
 package com.kinben.Service;
 
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -43,5 +47,22 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         return modelMapper.map(employee,EmployeeDto.class);
     }
+
+	@Override
+	public EmployeeDto getEmployee(Integer id) throws EmployeeException {
+		Employee employee = employeeRepository.findById(id).orElseThrow(() -> new EmployeeException("Employee not found with ID: " + id));
+
+        return modelMapper.map(employee,EmployeeDto.class);
+	}
+
+	@Override
+	public List<EmployeeDto> getAllEmployee() throws EmployeeException {
+		
+        List<Employee> employeeList = employeeRepository.findAll();
+
+        return employeeList.stream().map(employee -> modelMapper.map(employee, EmployeeDto.class)).collect(Collectors.toList());
+	}
+
+    
     
 }
