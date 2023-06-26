@@ -35,9 +35,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public EmployeeDto deleteEmployee(Integer id) {
+    public EmployeeDto deleteEmployee(Integer id) throws EmployeeException {
         
-        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new EmployeeException("Employee not found with ID: " + employeeDto.getEmployeeId()));
+        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new EmployeeException("Employee not found with ID: " + id));
 
         employeeRepository.delete(employee);
 

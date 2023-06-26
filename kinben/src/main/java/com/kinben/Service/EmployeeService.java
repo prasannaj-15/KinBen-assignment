@@ -10,6 +10,6 @@ public interface EmployeeService {
 
     public EmployeeDto updateEmployee(EmployeeDto employeeDto) throws EmployeeException;
 
-    public EmployeeDto deleteEmployee(Integer id);
+    public EmployeeDto deleteEmployee(Integer id) throws EmployeeException;
     
 }
